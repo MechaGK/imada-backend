@@ -7,7 +7,7 @@
     "validateUpsert": true
   },
   "properties": {
-    "Balance": {
+    "balance": {
       "type": "number",
       "required": true,
       "default": 0
