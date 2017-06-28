@@ -12,4 +12,4 @@ Install dependencies for project
 
 Run the server with
 
-```nodejs server/server.js```
+```node .```
