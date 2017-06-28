@@ -1,20 +1,24 @@
 {
-  "name": "ImadaUser",
-  "plural": "ImadaUsers",
-  "base": "User",
+  "name": "Transaction",
+  "base": "PersistedModel",
   "idInjection": true,
   "options": {
     "validateUpsert": true
   },
   "properties": {
-    "balance": {
+    "amount": {
       "type": "number",
-      "required": true,
-      "default": 0
+      "required": true
     }
   },
   "validations": [],
-  "relations": {},
+  "relations": {
+    "imadaUser": {
+      "type": "belongsTo",
+      "model": "ImadaUser",
+      "foreignKey": ""
+    }
+  },
   "acls": [
     {
       "accessType": "*",

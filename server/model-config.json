@@ -41,5 +41,9 @@
   "ImadaUser": {
     "dataSource": "db",
     "public": true
+  },
+  "Transaction": {
+    "dataSource": "db",
+    "public": true
   }
 }
