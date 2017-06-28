@@ -1,30 +1,28 @@
 var path = require('path'),
     fs = require('fs');
 
-fs.stat('./private/privatekey.pem', function(err, stat) {
-    if(err == null) {
-        exports.privateKey = fs.readFileSync(path.join(__dirname, './private/privatekey.pem')).toString();
-    } else if(err.code == 'ENOENT') {
-        // file does not exist
-        console.log('No private key');
-        exports.privateKey = null;
+
+var privateKey;
+var certificate;
+try {
+    privateKey = fs.readFileSync(path.join(__dirname, './private/privatekey.pem')).toString();
+} catch (err) {
+    if (err.code === 'ENOENT') {
+        console.log('Private key not found');
     } else {
-        console.log('Some other error: ', err.code);
+        console.log('An error occured while reading private key: ', err.code);
     }
-});
+}
 
-fs.stat('./private/certificate.pem', function(err, stat) {
-    if(err == null) {
-        exports.certificate = fs.readFileSync(path.join(__dirname, './private/certificate.pem')).toString();
-    } else if(err.code == 'ENOENT') {
-        // file does not exist
-        console.log('No certificate');
-        exports.certificate = null;
+try {
+    certificate = fs.readFileSync(path.join(__dirname, './private/certificate.pem')).toString();
+} catch (err) {
+    if (err.code === 'ENOENT') {
+        console.log('Certificate not found');
     } else {
-        console.log('Some other error: ', err.code);
+        console.log('An error occured while reading certificate: ', err.code);
     }
-});
+}
 
-
-
-
+exports.privateKey = privateKey;
+exports.certificate = certificate;
