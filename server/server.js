@@ -12,10 +12,16 @@ var app = module.exports = loopback();
 // boot scripts mount components like REST API
 boot(app, __dirname);
 
-app.start = function(httpOnly) {
+app.start = function (httpOnly) {
   if (httpOnly === undefined) {
     httpOnly = process.env.HTTP;
   }
+
+  if (sslConfig.privateKey === undefined || sslConfig.certificate === undefined) {
+    console.log("///\n\tWARNING: Incomplete ssl config. Using http\n///\n");
+    httpOnly = true;
+  }
+
   var server = null;
   if (!httpOnly) {
     var options = {
