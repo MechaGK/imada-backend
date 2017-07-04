@@ -9,6 +9,19 @@
     "amount": {
       "type": "number",
       "required": true
+    },
+    "time": {
+      "type": "date",
+      "required": true,
+      "default": "$now"
+    },
+    "timeOnDevice": {
+      "type": "date",
+      "required": false
+    },
+    "authorizedBy": {
+      "type": "number",
+      "required": false
     }
   },
   "validations": [],
@@ -24,6 +37,18 @@
       "accessType": "*",
       "principalType": "ROLE",
       "principalId": "admin",
+      "permission": "ALLOW"
+    },
+    {
+      "accessType": "*",
+      "principalType": "ROLE",
+      "principalId": "$everyone",
+      "permission": "DENY"
+    },
+    {
+      "accessType": "READ",
+      "principalType": "ROLE",
+      "principalId": "$owner",
       "permission": "ALLOW"
     }
   ],
