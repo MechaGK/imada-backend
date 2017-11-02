@@ -14,36 +14,36 @@
     ]
   },
   "User": {
-    "dataSource": "db"
+    "dataSource": "imadaDatabase"
   },
   "AccessToken": {
-    "dataSource": "db",
+    "dataSource": "imadaDatabase",
     "public": false
   },
   "ACL": {
-    "dataSource": "db",
+    "dataSource": "imadaDatabase",
     "public": false
   },
   "RoleMapping": {
-    "dataSource": "db",
+    "dataSource": "imadaDatabase",
     "public": false,
     "options": {
       "strictObjectIDCoercion": true
     }
   },
   "Role": {
-    "dataSource": "db",
+    "dataSource": "imadaDatabase",
     "public": false
   },
   "Message": {
     "dataSource": null
   },
   "ImadaUser": {
-    "dataSource": "db",
+    "dataSource": "imadaDatabase",
     "public": true
   },
   "Transaction": {
-    "dataSource": "db",
+    "dataSource": "imadaDatabase",
     "public": true
   }
 }
